@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <script>webLLMGlobal = {};
+
+</script>
+
+
+  <head><script src="/StableLM_Zephyr_1_6B.709264c6.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/StableLM_Zephyr_1_6B.2cdaf7bc.css">
+    <title>Text Completion Model Prototype</title>
+  </head>
+
+  <body>
+    <div class="overlay"></div>
+<h2>Text Completion Model Prototype - Qwen 2.5 1.5B</h2>
+<div class="row">
+  <label id="init-label"></label>
+  <div class="col-sm-1"></div>
+
+  <div class="col-sm-10">
+    <div class="form-row">
+      <div class="form-group col-md-8">
+        <h4>Type a few words. New suggestions for the next word will be generated.</h4>
+      </div>
+      <br>
+
+      <div class="options-container">
+        <div class="row">
+          <input type="radio" id="everyword" name="options" value="everyword">
+          <label for="everyword">Generate new suggestions after every word</label>
+        </div>
+        <div class="row">
+          <input type="radio" id="everyletter" name="options" value="everyletter">
+          <label for="everyletter">Generate new suggestions after every letter</label>
+        </div>
+      </div>
+
+      <div class="slider-container">
+        <div class="form-group col">
+          <label for="max_words" id="label_max_words">Top k words: 5</label>
+          <input type="range" class="custom-range top-k-words-slider" min="1" max="5" value="5" step="1" id="max_words">
+        </div>
+      </div>
+
+      <div class="slider-container">
+        <div class="form-group col">
+          <label for="context_window" id="label_context_window">Context Window (words included in query for inference): 100</label>
+          <input type="range" class="custom-range context-window-slider" min="1" max="1000" value="100" step="1" id="context_window">
+        </div>
+      </div>
+
+      <div class="form-row-input">
+        <div class="input-text-container">
+          <label for="input_text" class="text-box-label">Input Text</label>
+          <textarea class="form-control txt_input" id="input_text" rows="15"></textarea>
+        </div>
+      </div>
+
+      <div class="form-row-input">
+        <div class="input-text-container">
+          <label for="match_count" class="text-box-label">Match Count: # of times user has used one of the suggested words</label>
+          <input type="text" class="form-control" id="match_count" readonly="">
+        </div>
+      </div>
+
+      <div class="form-row-input">
+        <div class="suggested-text-container"> <!-- Adjusted to col-md-8 for alignment -->
+          <label for="suggested_text" class="text-box-label">Suggested Text</label>
+          <textarea class="form-control txt_response" id="suggested_text" readonly=""></textarea>
+        </div>
+      </div>
+
+      
+      <hr>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>
+
+
+    <script src="/Qwen_1_5.a35f7ac8.js" defer=""></script>
+  </body>
+</html>
