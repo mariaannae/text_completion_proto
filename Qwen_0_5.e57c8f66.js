@@ -649,8 +649,11 @@ async function main() {
         const textElement = document.getElementById(element_id);
         if (textElement) textElement.value = "Loading...";
         else console.error("Cannot find textarea with id " + element_id);
+        // Trim the text and remove any leading/trailing spaces
+        text = text.trim();
+        // Call the inference engine to generate completions
         const reply = await inference_engine.completions.create({
-            prompt: "text: " + text,
+            prompt: text,
             // below configurations are all optional
             echo: false,
             n: 1,
